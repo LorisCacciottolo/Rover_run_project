@@ -6,3 +6,5 @@
 #define ROVER_RUN_PROJECT_RANDOM_H
 
 #endif //ROVER_RUN_PROJECT_RANDOM_H
+
+char* randomMoves();
