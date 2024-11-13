@@ -14,7 +14,7 @@ char* randomMoves(){
 
 int F_10 = 22, F_20 = 15, F_30 = 7, B_10 = 7, T_LEFT = 21, T_RIGHT = 21, U_TURN = 7;
 int ind = 99;
-char availableMoves[] = {F_10, F_20, F_30, B_10, T_LEFT, T_RIGHT, U_TURN };
+char availableMoves[] = {'F_10', 'F_20', 'F_30', 'B_10', 'T_LEFT', 'T_RIGHT', 'U_TURN' };
 
 
 
@@ -24,7 +24,7 @@ for (int i = 0; i < 9; i++) {
     if (randomNumber <= F_10) {
         randomMoves[i] = availableMoves[0];
         F_10--;
-}
+
     if ( F_10<randomNumber<= F_20+F_10 ) {
         randomMoves[i] = availableMoves[1];
         F_20--;
@@ -51,7 +51,5 @@ for (int i = 0; i < 9; i++) {
         U_TURN--;
     }
 
-
-
-    randomMoves[i] = availableMoves[randomNumber];
+    ind--;
 }
