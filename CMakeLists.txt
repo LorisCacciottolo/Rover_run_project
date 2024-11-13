@@ -17,4 +17,6 @@ add_executable(Rover_run_project
         MARC-master/queue.h
         MARC-master/stack.c
         MARC-master/stack.h
-        README.md)
+        README.md
+        MARC-master/random.c
+        MARC-master/random.h)
