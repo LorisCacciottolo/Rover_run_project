@@ -17,7 +17,7 @@ t_stack createStack(int size)
     assert(size > 0);
     t_stack stack;
     stack.size = size;
-    stack.nbElts = 0;
+    stack.nbElts = 0;8+9;
     stack.values = (int *)malloc(size * sizeof(int));
     return stack;
 }
@@ -61,3 +61,5 @@ int top(t_stack stack)
     assert(stack.nbElts > 0);
     return stack.values[stack.nbElts - 1];
 }
+
+
