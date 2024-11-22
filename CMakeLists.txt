@@ -18,5 +18,5 @@ add_executable(Rover_run_project
         MARC-master/stack.c
         MARC-master/stack.h
         README.md
-        MARC-master/random.c
-        MARC-master/random.h)
+        MARC-master/tree.c
+        MARC-master/tree.h)
