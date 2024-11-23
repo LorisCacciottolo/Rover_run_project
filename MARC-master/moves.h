@@ -50,7 +50,7 @@ t_localisation move(t_localisation, t_move);
  * @return none
  */
 void updateLocalisation(t_localisation *, t_move);
-
+const char* string_t_moves(t_move move);
 
 t_move* chooseRandomMoves(int nbmov);
 
