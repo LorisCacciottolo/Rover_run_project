@@ -24,7 +24,8 @@ typedef enum e_move
     B_10, // Backward 10 m
     T_LEFT, // Turn left (+90°)
     T_RIGHT, // Turn right (-90°)
-    U_TURN
+    U_TURN,
+    STAYATBASE //initizlise the robot at root of tree
 } t_move;
 
 /**
@@ -49,5 +50,8 @@ t_localisation move(t_localisation, t_move);
  * @return none
  */
 void updateLocalisation(t_localisation *, t_move);
+
+
+t_move* chooseRandomMoves(int nbmove);
 
 #endif //UNTITLED1_MOVES_H

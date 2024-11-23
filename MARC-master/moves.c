@@ -2,8 +2,10 @@
 // Created by flasque on 19/10/2024.
 //
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "moves.h"
+#include <time.h>
 
 /* prototypes of local functions */
 /* local functions are used only in this file, as helper functions */
@@ -182,4 +184,89 @@ t_move *getRandomMoves(int N)
         moves[i] = (t_move )type;
     }
     return moves;
+}
+
+int random;
+int maxval_F10 = 21;
+int maxval_F20 = 36;
+int maxval_F30 = 43;
+int maxval_B10 = 50;
+int maxval_RIGHT = 71;
+int maxval_LEFT = 92;
+int maxval_UTURN = 99;
+
+t_move* chooseRandomMoves(int nbmove) {
+    srand(time(NULL)); //to make sure we get a different rand nb each time
+
+    t_move *list = malloc(nbmove * sizeof(t_move));
+    if (list == NULL) {
+        printf("Memory allocation failed.\n");
+        return NULL;
+    }
+
+    for (int i = 0; i < nbmove; i++) {
+        random = rand() % (maxval_UTURN+1); //generates a random number between 1 and maxval_UTURN
+
+        if (random <= maxval_F10) {
+            list[i] = F_10;//stores current move in list
+            maxval_F10--;
+            maxval_F20--;
+            maxval_F30--;
+            maxval_B10--;
+            maxval_RIGHT--;
+            maxval_LEFT--;
+            maxval_UTURN--;
+
+        } else if (random <= maxval_F20) {
+            list[i] = F_20; //stores current move in list
+            maxval_F20--;
+            maxval_F30--;
+            maxval_B10--;
+            maxval_RIGHT--;
+            maxval_LEFT--;
+            maxval_UTURN--;
+        } else if (random <= maxval_F30) {
+            list[i] = F_30;//stores current move in list
+            maxval_F30--;
+            maxval_B10--;
+            maxval_RIGHT--;
+            maxval_LEFT--;
+            maxval_UTURN--;
+        } else if (random <= maxval_B10) {
+            list[i] = B_10;//stores current move in list
+            maxval_B10--;
+            maxval_RIGHT--;
+            maxval_LEFT--;
+            maxval_UTURN--;
+        } else if (random <= maxval_RIGHT) {
+            list[i] = T_RIGHT;//stores current move in list
+            maxval_RIGHT--;
+            maxval_LEFT--;
+            maxval_UTURN--;
+        } else if (random <= maxval_LEFT) {
+            list[i] = T_LEFT;//stores current move in list
+            maxval_LEFT--;
+            maxval_UTURN--;
+        } else {
+            list[i] = U_TURN;//stores current move in list
+            maxval_UTURN--;
+        }
+    }
+
+    return list; // returns the list with the random moves stored in it
+
+}
+
+const char* string_t_move(t_move move) { //clearer display output
+    switch (move) {
+        case F_10: return "Go forward 10 m";
+        case F_20: return "Go forward 20 m";
+        case F_30: return "Go forward 30 m";
+        case B_10: return "Go backward 10 m";
+        case T_LEFT: return "Turn 90deg left";
+        case T_RIGHT: return "Turn 90deg right";
+        case U_TURN: return "Do a U-Turn";
+        case STAYATBASE: return "Stay at base";
+        default: return "Unknown move";
+    }
 }
