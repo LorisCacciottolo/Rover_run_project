@@ -76,8 +76,8 @@ t_localisation initialRobotPosition(t_map map) {
         pos.y = rand() % (map.y_max);
     } while (map.soils[pos.y][pos.x] == CREVASSE || basePos.x == pos.x && basePos.y == pos.y);
 
-    printf("Robot's position : [%d;%d]\n", pos.x+1, pos.y+1);
-    printf("We have to reach the base at the position : [%d;%d]\n", basePos.x+1, basePos.y+1);
+    printf("Robot's position : [%d;%d]\n", pos.x, pos.y);
+    printf("We have to reach the base at the position : [%d;%d]\n", basePos.x, basePos.y);
     robot.pos = pos;
     robot.ori = (t_orientation)(rand() % 4);
 
