@@ -165,46 +165,33 @@ void updateLocalisation(t_localisation *p_loc, t_move m)
     return;
 }
 
-t_move *getRandomMoves(int N)
-{
-    int nbmoves[]={22,15,7,7,21,21,7};
-    int total_moves=100;
-    t_move *moves = (t_move *)malloc(N * sizeof(t_move));
-    for (int i = 0; i < N; i++)
-    {
-        int r = rand() % total_moves;
-        int type=0;
-        while (r >= nbmoves[type])
-        {
-            r -= nbmoves[type];
-            type++;
-        }
-        nbmoves[type]--;
-        total_moves--;
-        moves[i] = (t_move )type;
-    }
-    return moves;
-}
 
-int random;
-int maxval_F10 = 21;
-int maxval_F20 = 36;
-int maxval_F30 = 43;
-int maxval_B10 = 50;
-int maxval_RIGHT = 71;
-int maxval_LEFT = 92;
-int maxval_UTURN = 99;
+/**
+ * @brief Function to choose random moves
+ * @param nbmov : The number of random moves to choose
+ * @return The list of the stored random moves
+ */
+t_move* chooseRandomMoves(int nbmov) {
+    //initialisation of the number of possible moves for each type of move
+    int random;
+    int maxval_F10 = 21;
+    int maxval_F20 = 36;
+    int maxval_F30 = 43;
+    int maxval_B10 = 50;
+    int maxval_RIGHT = 71;
+    int maxval_LEFT = 92;
+    int maxval_UTURN = 99;
 
-t_move* chooseRandomMoves(int nbmove) {
     srand(time(NULL)); //to make sure we get a different rand nb each time
 
-    t_move *list = malloc(nbmove * sizeof(t_move));
+    t_move *list = malloc(nbmov * sizeof(t_move));
     if (list == NULL) {
         printf("Memory allocation failed.\n");
         return NULL;
     }
 
-    for (int i = 0; i < nbmove; i++) {
+    //the loop decreases the number of possible other moves once a random move is chosen
+    for (int i = 0; i < nbmov; i++) {
         random = rand() % (maxval_UTURN+1); //generates a random number between 1 and maxval_UTURN
 
         if (random <= maxval_F10) {
@@ -257,7 +244,13 @@ t_move* chooseRandomMoves(int nbmove) {
 
 }
 
-const char* string_t_moves(t_move move) { //clearer display output
+
+/**
+ * @brief Function to get the string corresponding to a move
+ * @param move : the move we want to convert in a string
+ * @return the string corresponding to the move
+ */
+const char* string_t_moves(t_move move) { //clearer display output for the moves
     switch (move) {
         case F_10: return "Go forward 10 m";
         case F_20: return "Go forward 20 m";
