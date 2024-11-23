@@ -257,7 +257,7 @@ t_move* chooseRandomMoves(int nbmove) {
 
 }
 
-const char* string_t_move(t_move move) { //clearer display output
+const char* string_t_moves(t_move move) { //clearer display output
     switch (move) {
         case F_10: return "Go forward 10 m";
         case F_20: return "Go forward 20 m";
@@ -267,6 +267,6 @@ const char* string_t_move(t_move move) { //clearer display output
         case T_RIGHT: return "Turn 90deg right";
         case U_TURN: return "Do a U-Turn";
         case STAYATBASE: return "Stay at base";
-        default: return "Unknown move";
+        default: return "Undefined move";
     }
 }

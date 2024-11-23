@@ -13,15 +13,15 @@
 typedef struct s_node {
     int value ;
     int nb_sons;
-    t_move movements[5];
     t_localisation loc;
     t_move move;
+    t_move movements[5];
     struct t_node * sons[9];
 }t_node;
 
 typedef struct s_path{
     t_move moves[10];
-    int num_moves;
+    int nb_moves;
 } t_path;
 
 

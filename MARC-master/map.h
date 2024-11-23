@@ -9,6 +9,8 @@
 /**
  * @brief Enum for the possible soils of the map
  */
+#include "loc.h"
+
 typedef enum e_soil
 {
     BASE_STATION,
@@ -54,5 +56,8 @@ t_map createMapFromFile(char *);
  * @param map : the map to display
  */
 void displayMap(t_map);
+t_localisation initialRobotPosition(t_map map);
+t_position getBaseStationPosition(t_map map);
+void displayMapRobot(t_map map, t_position robot);
 
 #endif //UNTITLED1_MAP_H
