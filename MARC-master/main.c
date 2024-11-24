@@ -6,15 +6,18 @@
 #include "moves.h"
 #include "tree.h"
 
+
 // Function to display the current cycle number
 void nbCycles(int cycle) {
-    printf("\n-----------Cycle nb %-3d-----------\n\n", cycle);
+    printf("\n=== === === Cycle nb %-3d=== === ===\n\n", cycle);
 }
 
 
 
 int main() {
-    printf("\n<===| Rover Run Project |===>\n\n");
+    printf("\n *   .   +  *    .   +  *  +  *   .   +  *    .   +  *  *");
+    printf("\n .  +  *===| Welcome In The Rover Run Project !|===*  +  .");
+    printf("\n *   .   +  *    .   +  *  +  *   .   +  *    .   +  *  *\n\n");
 
     //create the map and get the initial robot position
     t_map map = createMapFromFile("C:..\\MARC-master\\maps\\example1.map");
@@ -77,7 +80,11 @@ int main() {
 
     //free memory for the last set of moves
     free(moves);
-
-    printf("\n<===| Mission successful |===>\n\n");
+    printf("\n *   .   +  *    .   +  *  +  *   .   +  *    .   +  *  *");
+    printf("\n              === === === === === === === ===       ");
+    printf("\n        === | The robot has reached the base! | === ");
+    printf("\n         ===| Mission Accomplished! Great Job! |=== ");
+    printf("\n              === === === === === === === ===        ");
+    printf("\n *   .   +  *    .   +  * \\\(^~~^)/ *   .   +  *    .   +  *\n");
     return 0;
 }
