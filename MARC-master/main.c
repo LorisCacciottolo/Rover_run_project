@@ -9,7 +9,10 @@
 
 // Function to display the current cycle number
 void nbCycles(int cycle) {
+
     printf("\n=== === === Cycle nb %-3d=== === ===\n\n", cycle);
+
+
 }
 
 
@@ -44,7 +47,7 @@ int main() {
         //display the list of chosen moves for the current cycle
 
         //create a new decision tree from the current position
-        root1 = createNode(current_node ? current_node->value : 1000,
+        root1 = createNode(current_node ? current_node->value : 1000, //if current node != NULL, val = current_node->value / else val = 1000
                            0, nb_moves, F_10,
                            current_node ? current_node->loc : currentLoc);
         createSons(root1, nb_moves, nb_choices, moves,
@@ -69,8 +72,8 @@ int main() {
         }
 
 
-        if (current_node == NULL || current_node->value == 0) {
-            break;
+        if (current_node == NULL || current_node->value == 0) { //when the fct minimumCost returns 0 and value = 0,
+            break;                                              //it means that the robot has reached the base
         }
 
         //generate new random moves for the next cycle

@@ -72,6 +72,7 @@ t_localisation initialRobotPosition(t_map map) {
     srand(time(NULL));
     do
     {
+        //random position of the robot inside the map limits
         pos.x = rand() % (map.x_max);
         pos.y = rand() % (map.y_max);
     } while (map.soils[pos.y][pos.x] == CREVASSE || basePos.x == pos.x && basePos.y == pos.y);
