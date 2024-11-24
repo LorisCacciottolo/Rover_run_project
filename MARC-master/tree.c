@@ -48,7 +48,7 @@ void createSons(t_node* node, int nb_moves, int nb_choices, t_move rem_moves[], 
         t_localisation newLoc = move(loc, rem_moves[i]);
 
 
-        //ensure the new location is valid
+        //ensure the new location is valid (not outside of the map)
         if (isValidLocalisation(newLoc.pos, map.x_max, map.y_max))
         {
             //create a new child node
