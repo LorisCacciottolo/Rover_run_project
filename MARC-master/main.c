@@ -8,7 +8,7 @@
 
 // Function to display the current cycle number
 void nbCycles(int cycle) {
-    printf("\n-----------Cycle nb %-3d-----------\n\n", cycle);
+    printf("\n----------- Cycle nb %-3d-----------\n\n", cycle);
 }
 
 
@@ -66,8 +66,8 @@ int main() {
         }
 
 
-        if (current_node == NULL || current_node->value == 0) {
-            break;
+        if (current_node == NULL || current_node->value == 0) { //when the fct minimumCost returns 0 and value = 0,
+            break;                                              //it means that the robot has reached the base
         }
 
         //generate new random moves for the next cycle
