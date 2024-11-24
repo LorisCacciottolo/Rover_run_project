@@ -41,7 +41,7 @@ int main() {
         //display the list of chosen moves for the current cycle
 
         //create a new decision tree from the current position
-        root1 = createNode(current_node ? current_node->value : 1000,
+        root1 = createNode(current_node ? current_node->value : 1000, //if current node != NULL, val = current_node->value / else val = 1000
                            0, nb_moves, F_10,
                            current_node ? current_node->loc : currentLoc);
         createSons(root1, nb_moves, nb_choices, moves,

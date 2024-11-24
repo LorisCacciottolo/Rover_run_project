@@ -69,32 +69,28 @@ void createSons(t_node* node, int nb_moves, int nb_choices, t_move rem_moves[], 
 
 t_node* minimumCost(t_node* root)
 {
-    //check for invalid nodes
-    if (root == NULL) {
+    //if the current node is NULL or its value is invalid, return NULL
+    if (!root || root->value >= 10000) {
         return NULL;
     }
 
-    //check if current position is not in a crevasse of out of the map
-    if (root->value >= 10000) {
-        return NULL;
-    }
-
-    //we assume that the current node is the minimum
+    //assume the current node is the minimum initially
     t_node* minimum_node = root;
-    int minimum_cost = root->value;
 
-    // Check all children
+    //recursively check all child nodes
     for (int i = 0; i < root->nb_sons; i++) {
-        t_node* son_min = minimumCost(root->sons[i]);
+        t_node* son_min = minimumCost(root->sons[i]); //find the minimum node in the current subtree
 
-        if (son_min != NULL && son_min->value < minimum_cost) {
+        //if a valid smaller value is found, update the minimum node
+        if (son_min && son_min->value < minimum_node->value) {
             minimum_node = son_min;
-            minimum_cost = son_min->value;
         }
     }
 
+    //return the minimum node found
     return minimum_node;
 }
+
 
 
 void displayTree(t_node* root, int depth)
@@ -103,7 +99,7 @@ void displayTree(t_node* root, int depth)
         return;
     }
 
-    // Print indentation
+    //print indentation
     for (int i = 0; i < depth; i++) {
         printf(" ");
     }
