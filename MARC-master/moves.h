@@ -53,5 +53,5 @@ void updateLocalisation(t_localisation *, t_move);
 const char* string_t_moves(t_move move);
 
 t_move* chooseRandomMoves(int nbmov);
-
+void displayRobotMoves(t_move* moves, int nb_moves);
 #endif //UNTITLED1_MOVES_H

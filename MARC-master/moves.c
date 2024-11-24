@@ -263,3 +263,12 @@ const char* string_t_moves(t_move move) { //clearer display output for the moves
         default: return "Undefined move";
     }
 }
+
+// Function to display the sequence of moves made by the robot
+void displayRobotMoves(t_move* moves, int nb_moves) {
+    printf("Robot's movements:\n");
+    for (int i = 0; i < nb_moves; i++) {
+        printf("  %d. %s\n", i + 1, string_t_moves(moves[i]));
+    }
+    printf("\n");
+}
