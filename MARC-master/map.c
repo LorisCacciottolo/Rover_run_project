@@ -77,19 +77,19 @@ t_localisation initialRobotPosition(t_map map) {
     } while (map.soils[pos.y][pos.x] == CREVASSE || basePos.x == pos.x && basePos.y == pos.y);
 
     printf("Robot's position : [%d;%d]\n", pos.x, pos.y);
-    printf("We have to reach the base at the position : [%d;%d]\n", basePos.x, basePos.y);
+    printf("We have to reach the base located at : [%d;%d]\n", basePos.x, basePos.y);
     robot.pos = pos;
     robot.ori = (t_orientation)(rand() % 4);
 
     switch (robot.ori) {
         case NORTH:
-            printf("The robot is oriented towards north\n");
+            printf("The robot is oriented towards North\n");
             break;
         case SOUTH:
-            printf("The robot is oriented towards south\n");
+            printf("The robot is oriented towards South\n");
             break;
         case WEST:
-            printf("The robot is oriented towards west\n");
+            printf("The robot is oriented towards West\n");
             break;
         case EAST:
             printf("The robot is oriented towards East\n");
@@ -161,6 +161,7 @@ void removeFalseCrevasses(t_map map)
     }
 }
 
+//we calculate the costs of the map from the base station
 void calculateCosts(t_map map)
 {
     t_position baseStation = getBaseStationPosition(map);
