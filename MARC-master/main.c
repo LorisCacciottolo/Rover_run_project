@@ -17,7 +17,7 @@ int main() {
     printf("\n<===| Rover Run Project |===>\n\n");
 
     //create the map and get the initial robot position
-    t_map map = createMapFromFile("C:\\Users\\33768\\Documents\\Rover_run_project\\MARC-master\\maps\\example1.map");
+    t_map map = createMapFromFile("C:..\\MARC-master\\maps\\example1.map");
     t_localisation currentLoc = initialRobotPosition(map);  // Initial position of the robot
     int cycle = 0;
     int nb_moves = 5;
